@@ -13,6 +13,12 @@
         <h2>{{blog.title}}</h2>
         <h5>{{blog.pub_date}}</h5>
         <p>{{blog.body}}</p>
+        {% ifequal False blog.notice_or_not %}
+            <p>공지글이 아닙니다.</p>
+        {% endifequal %}
+        {% ifequal True blog.notice_or_not %}
+            <p>공지글 입니다.</p>
+        {% endifequal %}
         <a href="{% url 'update' blog.id%}">수정</a>
         <a href="{% url 'delete' blog.id%}">삭제</a>
         <hr>
